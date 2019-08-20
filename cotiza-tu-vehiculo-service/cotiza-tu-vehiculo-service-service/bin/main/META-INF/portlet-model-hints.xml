@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.dbsystem.cotizatuvehiculo.model.Ciudades">
+		<field name="ciudadId" type="long" />
+		<field name="ciudad" type="String" />
+		<field name="estado" type="boolean" />
+	</model>
+	<model name="com.dbsystem.cotizatuvehiculo.model.Cliente">
+		<field name="clienteId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="tipoDocumento" type="long" />
+		<field name="numeroDocumento" type="String" />
+		<field name="nombres" type="String" />
+		<field name="apellidos" type="String" />
+		<field name="celular" type="String" />
+		<field name="email" type="String" />
+		<field name="estado" type="boolean" />
+	</model>
+	<model name="com.dbsystem.cotizatuvehiculo.model.ClienteVehiculo">
+		<field name="clienteVehiculoId" type="long" />
+		<field name="clienteId" type="long" />
+		<field name="concesionarioId" type="long" />
+		<field name="vehiculoId" type="long" />
+	</model>
+	<model name="com.dbsystem.cotizatuvehiculo.model.Concesionario">
+		<field name="concesionarioId" type="long" />
+		<field name="ciudadId" type="long" />
+		<field name="concesionario" type="String" />
+		<field name="estado" type="boolean" />
+	</model>
+	<model name="com.dbsystem.cotizatuvehiculo.model.ConcesionarioVehiculo">
+		<field name="concesionarioVehiculoId" type="long" />
+		<field name="concesionarioId" type="long" />
+		<field name="vehiculoId" type="long" />
+	</model>
+	<model name="com.dbsystem.cotizatuvehiculo.model.Vehiculo">
+		<field name="vehiculoId" type="long" />
+		<field name="vehiculo" type="String" />
+		<field name="estado" type="boolean" />
+	</model>
+</model-hints>

@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_2_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.dbsystem.cotizatuvehiculo">
+	<namespace>dbsystem</namespace>
+	<entity local-service="true" name="Cliente" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="clienteId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Other fields -->
+		<column name="tipoDocumento" type="long" />
+		<column name="numeroDocumento" type="String" />
+		<column name="nombres" type="String" />
+		<column name="apellidos" type="String" />
+		<column name="celular" type="String" />
+		<column name="email" type="String" />
+		<column name="estado" type="boolean" />
+		
+
+		<!-- Order -->
+		<order by="desc">
+			<order-column name="clienteId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="Identificacion" return-type="Cliente">
+			<finder-column name="tipoDocumento" />
+			<finder-column name="numeroDocumento" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="Ciudades" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="ciudadId" primary="true" type="long" />
+
+		<!-- Other fields -->
+		<column name="ciudad" type="String" />
+		<column name="estado" type="boolean" />
+		
+		<finder name="Estado" return-type="Collection">
+			<finder-column name="estado" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="Concesionario" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="concesionarioId" primary="true" type="long" />
+
+		<!-- Other fields -->
+		<column name="ciudadId" type="long" />
+		<column name="concesionario" type="String" />
+		<column name="estado" type="boolean" />
+		
+		<!-- Finder methods -->
+		<finder name="CiudadId" return-type="Collection">
+			<finder-column name="ciudadId" />
+		</finder>
+		<finder name="CiudadIdEstado" return-type="Collection">
+			<finder-column name="ciudadId" />
+			<finder-column name="estado" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="Vehiculo" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="vehiculoId" primary="true" type="long" />
+
+		<!-- Other fields -->
+		<column name="vehiculo" type="String" />
+		<column name="estado" type="boolean" />
+	</entity>
+	
+	<entity local-service="true" name="ClienteVehiculo" remote-service="false">
+	
+		<!-- PK fields -->
+		<column name="clienteVehiculoId" primary="true" type="long" />
+		
+		<column name="clienteId" type="long" />
+		<column name="concesionarioId" type="long" />
+		<column name="vehiculoId" type="long" />
+		
+		<!-- Finder methods -->
+		<finder name="ClienteIdConcesionarioIdVehiculoId" return-type="ClienteVehiculo">
+			<finder-column name="clienteId" />
+			<finder-column name="concesionarioId" />
+			<finder-column name="vehiculoId" />
+		</finder>
+		<finder name="ClienteId" return-type="Collection">
+			<finder-column name="clienteId" />
+		</finder>
+		<finder name="VehiculoId" return-type="Collection">
+			<finder-column name="vehiculoId" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="ConcesionarioVehiculo" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="concesionarioVehiculoId" primary="true" type="long" />
+		
+		<column name="concesionarioId" type="long" />
+		<column name="vehiculoId" type="long" />
+		
+		<!-- Finder methods -->
+		<finder name="ConcesionarioId" return-type="Collection">
+			<finder-column name="concesionarioId" />
+		</finder>
+		<finder name="VehiculoId" return-type="Collection">
+			<finder-column name="vehiculoId" />
+		</finder>
+		<finder name="ConcesionarioIdVehiculoId" return-type="ConcesionarioVehiculo">
+			<finder-column name="concesionarioId"/>
+			<finder-column name="vehiculoId" />
+		</finder>
+	</entity>
+	
+</service-builder>	

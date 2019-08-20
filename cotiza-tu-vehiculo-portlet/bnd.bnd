@@ -1,0 +1,4 @@
+Bundle-Name: cotiza-tu-vehiculo-portlet
+Bundle-SymbolicName: com.dbsystem.cotizatuvehiculo.portlet
+Bundle-Version: 1.0.0
+Export-Package: com.dbsystem.cotizatuvehiculo.portlet.constants

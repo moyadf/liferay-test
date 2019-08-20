@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.dbsystem.cotizatuvehiculo.model.Ciudades" />
+	<import class="com.dbsystem.cotizatuvehiculo.model.Cliente" />
+	<import class="com.dbsystem.cotizatuvehiculo.model.ClienteVehiculo" />
+	<import class="com.dbsystem.cotizatuvehiculo.model.Concesionario" />
+	<import class="com.dbsystem.cotizatuvehiculo.model.ConcesionarioVehiculo" />
+	<import class="com.dbsystem.cotizatuvehiculo.model.Vehiculo" />
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.CiudadesImpl" table="dbsystem_Ciudades">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="ciudadId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="ciudad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="estado" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.ClienteImpl" table="dbsystem_Cliente">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="clienteId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="tipoDocumento" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="numeroDocumento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="nombres" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="apellidos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="celular" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="estado" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.ClienteVehiculoImpl" table="dbsystem_ClienteVehiculo">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="clienteVehiculoId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="clienteId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="concesionarioId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="vehiculoId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.ConcesionarioImpl" table="dbsystem_Concesionario">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="concesionarioId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="ciudadId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="concesionario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="estado" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.ConcesionarioVehiculoImpl" table="dbsystem_ConcesionarioVehiculo">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="concesionarioVehiculoId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="concesionarioId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="vehiculoId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.dbsystem.cotizatuvehiculo.model.impl.VehiculoImpl" table="dbsystem_Vehiculo">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="vehiculoId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="vehiculo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="estado" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>
